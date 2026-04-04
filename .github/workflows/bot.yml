@@ -43,7 +43,10 @@ jobs:
           INSTANCE_ID: ${{ github.repository }}
         run: |
           # Start bot
-          ./ipa-sign-bot &
+          ./ipa-sign-bot > bot.log 2>&1 &
+          sleep 15
+          cat bot.log
+
           BOT_PID=$!
 
           # Run 4h40m, then trigger next
