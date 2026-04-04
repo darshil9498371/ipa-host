@@ -50,7 +50,7 @@ jobs:
           BOT_PID=$!
 
           # Run 4h40m, then trigger next
-          sleep 16800
+          sleep 15
 
           echo "Triggering next: ${{ secrets.NEXT_REPO }}"
           curl -sf -X POST \
