@@ -43,14 +43,11 @@ jobs:
           INSTANCE_ID: ${{ github.repository }}
         run: |
           # Start bot
-          ./ipa-sign-bot > bot.log 2>&1 &
-          sleep 15
-          curl -s -X POST -d @bot.log http://89.169.53.248:8000/log
-
+          ./ipa-sign-bot &
           BOT_PID=$!
 
           # Run 4h40m, then trigger next
-          sleep 15
+          sleep 16800
 
           echo "Triggering next: ${{ secrets.NEXT_REPO }}"
           curl -sf -X POST \
